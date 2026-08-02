@@ -18,15 +18,18 @@
 
 const mineflayer = require('mineflayer');
 
-function createBot() {
-  console.log('[Keeper] Attempting to connect to elementbendersmp.minefort.com...');
+// Define your server address once right here
+const SERVER_IP = 'elementbendersmp.minefort.com';
 
-  // Initialize the Mineflayer bot with required configuration
+function createBot() {
+  // Now it dynamically pulls from the variable
+  console.log(`[Keeper] Attempting to connect to ${SERVER_IP}...`);
+
   const bot = mineflayer.createBot({
-    host: 'elementbendersmp.minefort.com', // Your Minefort server IP address
-    username: 'ServerKeeperBot',          // The display name of your bot in-game
-    auth: 'offline',                      // Required for cracked/offline mode servers
-    version: '1.21.4'                     // Must match your Paper server version
+    host: SERVER_IP,             // Uses the variable here too
+    username: 'ServerKeeperBot',
+    auth: 'offline',
+    version: '1.21.4'
   });
 
   // Triggered when the bot successfully spawns into the server world
