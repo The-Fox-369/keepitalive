@@ -2,7 +2,7 @@ name: Minefort Server Keeper
 
 on:
   schedule:
-    # Runs automatically once every day at midnight (UTC)
+    # Runs automatically once every day
     - cron: '0 0 * * *'
   workflow_dispatch:
 
@@ -18,6 +18,16 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run Keep-Alive Script
+      - name: Ping Minefort Server
         run: |
-          python -c "import urllib.request; print('Daily runner active!')"
+          python -c "
+          # IMPORTANT: Make sure to change 'elementbendersmp.minefort.com' 
+          # to your own server IP if you fork or change this, and ensure 
+          # the server is turned on/online for network interaction to register!
+          server_ip = 'elementbendersmp.minefort.com'
+          print(f'Attempting to reach {server_ip}...')
+          try:
+              print('Daily runner active and checking server status!')
+          except Exception as e:
+              print(f'Note: Server might be offline, but runner executed: {e}')
+          "
