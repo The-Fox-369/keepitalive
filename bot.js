@@ -19,7 +19,7 @@
 const mineflayer = require('mineflayer');
 
 // Define your server address once right here
-const SERVER_IP = 'elementbendersmp.minefort.com';
+const SERVER_IP = 'your-server-ip.minefort.com';
 
 function createBot() {
   // Now it dynamically pulls from the variable
