@@ -4,6 +4,7 @@ A lightweight, automated local Node.js bot built using **Mineflayer** to keep fr
 
 ## 🚀 Features
 
+* **Clean & Modular Configuration:** Server host addresses are managed via a single `SERVER_IP` variable for easy maintenance.
 * **Offline/Cracked Mode Support:** Works seamlessly with Minefort servers that allow cracked/offline players (`auth: 'offline'`).
 * **Active Player Simulation:** Periodically performs random movement actions (walking, jumping) and camera rotations to prevent AFK kick timeouts.
 * **Auto-Reconnect Protocol:** Automatically handles dropped connections and attempts to log back in after 10 seconds.
@@ -31,13 +32,8 @@ node bot.js
 
 ## ⚙️ Configuration
 
-If you need to change your target server address or version, open `bot.js` and update the configuration object:
+Open `bot.js` and update the `SERVER_IP` constant at the top to match your target server address:
 
 ```javascript
-const bot = mineflayer.createBot({
-  host: 'your-server-ip.minefort.com',
-  username: 'ServerKeeperBot',
-  auth: 'offline',
-  version: '1.21.4'
-});
+const SERVER_IP = 'your-server-ip.minefort.com';
 ```
