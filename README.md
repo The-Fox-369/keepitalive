@@ -1,23 +1,43 @@
-# Minefort Server Keeper 🤖🛡️
+# 🤖 Minefort ServerKeeper
 
-A lightweight, automated local Node.js bot powered by **Mineflayer** designed to keep your Minecraft server active, prevent idle shutdowns, and bypass the 3-day inactivity deletion timer on free hosts like Minefort.
+A lightweight, automated local Node.js bot built using **Mineflayer** to keep free Minecraft servers alive on **Minefort** and completely bypass automatic deletion timers.
 
-## ✨ Features
+## 🚀 Features
 
-- **Automated Ghost Player:** Logs into your server as an active player so your dashboard registers active player counts instead of staying dead at `0/10`.
-- **Anti-AFK Movement Loop:** Randomly walks, jumps, and looks around every few seconds to prevent the server from kicking the bot for being idle.
-- **Auto-Reconnect Protocol:** Automatically handles disconnections, network drops, or server restarts, attempting a safe reconnection loop after 10 seconds.
-- **Cracked/Offline Mode Support:** Fully configured to work smoothly with servers that have offline authentication enabled.
+* **Offline/Cracked Mode Support:** Works seamlessly with Minefort servers that allow cracked/offline players (`auth: 'offline'`).
+* **Active Player Simulation:** Periodically performs random movement actions (walking, jumping) and camera rotations to prevent AFK kick timeouts.
+* **Auto-Reconnect Protocol:** Automatically handles dropped connections and attempts to log back in after 10 seconds.
 
 ---
 
-## 🚀 Quick Setup Guide
+## 🛠️ Installation & Setup
 
-### 1. Prerequisites
-Make sure you have **Node.js** installed on your machine. You can download it from [nodejs.org](https://nodejs.org/).
+1. **Prerequisites:** Ensure you have [Node.js](https://nodejs.org/) installed on your machine.
+2. **Clone or Download** this repository to your local machine.
+3. Open your terminal inside the project folder and install the required dependency:
+   ```bash
+   npm install mineflayer
+   ```
 
-### 2. Clone or Download the Repository
-Open your terminal and clone this repository (or download the files directly into a local folder):
+---
+
+## 💻 Usage
+
+Run the bot locally from your machine anytime you want to keep your server awake and clear the deletion timer:
+
 ```bash
-git clone [https://github.com/The-Fox-369/keepalive.git](https://github.com/The-Fox-369/keepalive.git)
-cd keepalive
+node bot.js
+```
+
+## ⚙️ Configuration
+
+If you need to change your target server address or version, open `bot.js` and update the configuration object:
+
+```javascript
+const bot = mineflayer.createBot({
+  host: 'your-server-ip.minefort.com',
+  username: 'ServerKeeperBot',
+  auth: 'offline',
+  version: '1.21.4'
+});
+```
